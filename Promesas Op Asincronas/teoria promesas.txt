@@ -1,0 +1,28 @@
+Hay mecanismos para conocer y controlar el rsdo de una promesa, que puede cumplirse o no.
+Si :
+    - se cumple: (resolve) --> resuelta
+    - sino se cumple: (rejected) --> rechazada
+
+    Estados de una promesa:
+
+    - Pendiente (pending): Corresponde a su estado inicial, cuando todavía no conocemos su rsdo.
+    - Resuelta (fullfilled): Indica que la promesa se ha cumplido y obtendremos un valor a cambio que será el rsdo de la ejecución.
+    - Rechazada (rejected): Nos hace saber que la ejecución ha fallado y no nos proporcionará el motivo del error.
+
+    Estructura de una promesa:
+
+    La manera de funcionar de una promesa podría interpretarse como un bloque if-else de la siguiente forma:
+
+    if (promesaResuelta){
+        // instrucciones promesa completa
+    } else {
+        // instrucciones promesa incompleta
+    }
+
+- then (fnCallback): Solamente ejecuta su función callback, conocida como manejador, cuando la promesa se resuelve. Además, esta función fnCallback 
+  recibe automáticamente como parámetro el resultado de la promesa para que pueda realizar operaciones con él.
+
+- catch (fnCallback): Cuando la promesa es rechazada lanza su callback, que recibe como parámetro el error con el motivo del rechazo. También captura excepciones
+ producidas en la ejecución del callback del método then.
+
+ - finally(fnCallback): La función callback de este método es ejecutada siempre, sin importar el resultado de la promesa. En este caso la función no recibe ningún parámetro.

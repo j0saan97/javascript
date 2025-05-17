@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de SessionStorage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mensaje de la Sesión</h1>
+        <form id="messageForm">
+            <input type="text" id="messageInput" placeholder="Ingresa un mensaje" required>
+            <button type="submit">Guardar Mensaje</button>
+        </form>
+        <div id="savedMessage" class="message"></div>
+    </div>
+
+    <script>
+        // Función para mostrar el mensaje guardado
+        function displayMessage() {
+            const message = sessionStorage.getItem('message');
+            const savedMessageDiv = document.getElementById('savedMessage');
+
+            if (message) {
+                savedMessageDiv.textContent = `Mensaje guardado: ${message}`;
+            } else {
+                savedMessageDiv.textContent = 'No hay mensajes guardados en esta sesión.';
+            }
+        }
+
+        // Evento para manejar el envío del formulario
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evitar el envío del formulario
+
+            const message = document.getElementById('messageInput').value;
+            sessionStorage.setItem('message', message); // Guardar el mensaje en sessionStorage
+
+            displayMessage(); // Mostrar el mensaje guardado
+        });
+
+        // Llamar a la función para mostrar el mensaje cuando se cargue la página
+        displayMessage();
+    </script>
+</body>
+</html>

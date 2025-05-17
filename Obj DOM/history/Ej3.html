@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Length Example</title>
+</head>
+<body>
+    <!--Usando history.length para conocer el tamaño del historial. Este ejemplo muestra cómo obtener el número de entradas en el historial.-->
+    <h1>Historial del navegador</h1>
+    <button id="showLengthBtn">Mostrar longitud del historial</button>
+    
+    <script>
+        document.getElementById('showLengthBtn').addEventListener('click', function() {
+            alert('El historial del navegador tiene ' + history.length + ' elementos.');
+        });
+    </script>
+</body>
+</html>

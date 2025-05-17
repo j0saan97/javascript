@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejadores de Eventos en HTML y JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        button {
+            margin: 20px;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ejemplo 1: Manejador de Evento desde Atributo HTML -->
+    <button onclick="alert(`me has pulsado`);">Cambiar Color de Fondo (Atributo HTML)</button>
+
+    <!-- Ejemplo 2: Manejador de Evento desde Código JavaScript -->
+    <button id="boton">Mostrar Alerta (JavaScript)</button>
+
+    <script>
+
+        // asociamos una funcion a un evento, 1o pasamos el evento que desencadena ña fucion y luego la funcion que se ejecuta cuando el evento ocurre
+        // Añadir un manejador de eventos desde JavaScript
+        document.getElementById("boton").addEventListener("click", function() {
+            alert("¡Evento manejado desde JavaScript!");
+        });
+    </script>
+
+</body>
+</html>

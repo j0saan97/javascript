@@ -1,0 +1,94 @@
+<!--Explicación del Código:
+Zona de Drag and Drop: El div con id drop-zone es el área donde el usuario puede arrastrar y soltar su archivo. 
+Se añaden eventos dragover y dragleave para manejar el estilo visual durante el arrastre.
+Información del Archivo: La función displayFileInfo(file) muestra el nombre, tamaño (en KB), y tipo del archivo en el div con id file-info.
+Contenido del Archivo: La función readFileAsText(file) utiliza un FileReader para leer el contenido del archivo como texto y mostrarlo en el div con id file-content-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer archivo usando la API File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+
+        #drop-zone {
+            border: 2px dashed #ccc;
+            padding: 30px;
+            width: 300px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+        }
+
+        #drop-zone.hover {
+            border-color: #666;
+            background-color: #eee;
+        }
+
+        #file-info {
+            margin-top: 20px;
+        }
+
+        #file-content {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sube tu archivo</h1>
+    <div id="drop-zone">Arrastra y suelta tu archivo aquí</div>
+    <div id="file-info"></div>
+    <div id="file-content"></div>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInfo = document.getElementById('file-info');
+        const fileContent = document.getElementById('file-content');
+
+        dropZone.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropZone.classList.add('hover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('hover');
+        });
+
+        dropZone.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropZone.classList.remove('hover');
+
+            const file = event.dataTransfer.files[0];
+            if (file) {
+                displayFileInfo(file);
+                readFileAsText(file);
+            }
+        });
+
+        function displayFileInfo(file) {
+            fileInfo.innerHTML = `
+                <p><strong>Nombre:</strong> ${file.name}</p>
+                <p><strong>Tamaño:</strong> ${(file.size / 1024).toFixed(2)} KB</p>
+                <p><strong>Tipo:</strong> ${file.type}</p>
+            `;
+        }
+
+        function readFileAsText(file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                fileContent.textContent = event.target.result;
+            };
+            reader.readAsText(file);
+        }
+    </script>
+
+</body>
+</html>

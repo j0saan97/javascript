@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!--ORDEN DE REGISTRO-->
+<button id="myButton">Haz clic aquí</button>
+
+    <script>
+    document.getElementById('myButton').addEventListener('click', function() {
+        console.log('Listener 1: Primer en ser registrado');
+    });
+
+    document.getElementById('myButton').addEventListener('click', function() {
+        console.log('Listener 2: Segundo en ser registrado');
+    });
+
+    document.getElementById('myButton').addEventListener('click', function() {
+        console.log('Listener 3: Tercer en ser registrado');
+    });
+    </script>
+
+    <!--Fase de Captura vs. Fase de Burbujeo-->
+
+    <div id="parent" style="padding: 20px; background-color: lightblue;">
+        <button id="myButton">Haz clic aquí</button>
+    </div>
+    
+        <script>
+        // Listener en la fase de captura
+        document.getElementById('parent').addEventListener('click', function() {
+            console.log('Listener de captura en el padre');
+        }, true); // `true` activa la captura
+        
+        // Listener en la fase de burbujeo
+        document.getElementById('parent').addEventListener('click', function() {
+            console.log('Listener de burbujeo en el padre');
+        }, false); // `false` es la fase de burbujeo (por defecto)
+        
+        document.getElementById('myButton').addEventListener('click', function() {
+            console.log('Listener en el botón');
+        });
+        </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Evento Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .log {
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            width: 80%;
+            margin-top: 20px;
+            overflow: auto;
+            max-height: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modifica el LocalStorage</h1>
+        <input type="text" id="storageInput" placeholder="Ingresa un valor" required>
+        <button id="saveButton">Guardar en LocalStorage</button>
+    </div>
+
+    <div class="container">
+        <h1>Valor Actual de LocalStorage</h1>
+        <p id="currentValue"></p>
+    </div>
+
+    <div class="log" id="log">
+        <h3>Registro de Cambios</h3>
+    </div>
+
+    <script>
+        // Mostrar el valor actual de localStorage
+        function updateCurrentValue() {
+            const currentValue = localStorage.getItem('myKey');
+            document.getElementById('currentValue').textContent = currentValue || 'No hay valor almacenado';
+        }
+
+        // Evento de clic para guardar en localStorage
+        document.getElementById('saveButton').addEventListener('click', function() {
+            const value = document.getElementById('storageInput').value;
+            localStorage.setItem('myKey', value);
+            updateCurrentValue(); // Actualizar el valor mostrado
+        });
+
+        // Escuchar el evento storage para detectar cambios en localStorage
+        window.addEventListener('storage', function(event) {
+            if (event.key === 'myKey') {
+                const log = document.getElementById('log');
+                const message = `Cambió el valor de "myKey":\n- Valor Anterior: ${event.oldValue}\n- Nuevo Valor: ${event.newValue}\n- URL: ${event.url}`;
+                
+                const logEntry = document.createElement('p');
+                logEntry.textContent = message;
+                log.appendChild(logEntry);
+                
+                updateCurrentValue(); // Actualizar el valor mostrado
+            }
+        });
+
+        // Inicializar mostrando el valor actual
+        updateCurrentValue();
+    </script>
+</body>
+</html>

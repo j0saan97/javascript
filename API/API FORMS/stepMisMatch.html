@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>stepMismatch Example</h2>
+
+<input id="stepMismatchInput" type="number" step="2">
+<button onclick="checkStepMismatch()">Check</button>
+<p id="stepMismatchResult"></p>
+
+<script>
+function checkStepMismatch() {
+    const input = document.getElementById("stepMismatchInput");
+    document.getElementById("stepMismatchResult").innerHTML = input.validity.stepMismatch ? 
+        "El valor no coincide con el incremento del paso (step)." : 
+        "El valor es válido según el incremento del paso.";
+}
+</script>
+
+</body>
+</html>

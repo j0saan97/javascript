@@ -1,0 +1,23 @@
+<!--patternMismatch: Indica si el valor del campo no coincide con el patrón especificado en el atributo pattern. -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>patternMismatch Example</h2>
+
+<input id="patternMismatchInput" type="text" pattern="[A-Za-z]{5}">
+<button onclick="checkPatternMismatch()">Check</button>
+<p id="patternMismatchResult"></p>
+
+<script>
+function checkPatternMismatch() {
+    const input = document.getElementById("patternMismatchInput");
+    document.getElementById("patternMismatchResult").innerHTML = input.validity.patternMismatch ? 
+        "El valor no coincide con el patrón." : 
+        "El valor coincide con el patrón.";
+}
+</script>
+
+</body>
+</html>

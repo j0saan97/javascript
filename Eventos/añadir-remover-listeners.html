@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="myButton">Haz clic aquí</button>
+    <button id="removeListener">Remover listener</button>
+    
+    <script>
+        // Definimos la función que será llamada cuando se haga clic en el botón
+        function showAlert() {
+            alert('¡Botón clickeado!');
+        }
+
+        // Añadimos el listener al botón con id "myButton"
+        document.getElementById('myButton').addEventListener('click', showAlert);
+
+        // Añadimos otro listener al botón con id "removeListener" para remover el listener anterior
+        document.getElementById('removeListener').addEventListener('click', function() {
+            // Removemos el listener del botón "myButton"
+            document.getElementById('myButton').removeEventListener('click', showAlert);
+            alert('Listener removido'); // Mostramos una alerta para confirmar que el listener ha sido removido
+        });
+
+
+    </script>
+
+</body>
+</html>

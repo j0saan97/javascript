@@ -1,0 +1,23 @@
+<!--tooLong: Indica si el valor del campo excede la longitud máxima permitida (atributo maxLength).-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>tooLong Example</h2>
+
+<input id="tooLongInput" type="text" maxlength="5">
+<button onclick="checkTooLong()">Check</button>
+<p id="tooLongResult"></p>
+
+<script>
+function checkTooLong() {
+    const input = document.getElementById("tooLongInput");
+    document.getElementById("tooLongResult").innerHTML = input.validity.tooLong ? 
+        "El valor es demasiado largo." : 
+        "El valor está dentro del límite de longitud.";
+}
+</script>
+
+</body>
+</html>

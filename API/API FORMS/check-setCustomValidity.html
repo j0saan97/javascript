@@ -1,0 +1,44 @@
+<!--checkValidity()	Returns true if an input element contains valid data.
+ setCustomValidity()	Sets the validationMessage property of an input element.-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Validation con setCustomValidity</h2>
+<p>Enter a number and click OK:</p>
+
+<input id="id1" type="number" min="100" max="300" required>
+<button onclick="myFunction()">OK</button>
+
+<p>If the number is less than 100 or greater than 300, a custom error message will be displayed.</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  const inpObj = document.getElementById("id1");
+  
+  // Limpiamos cualquier mensaje de error personalizado previo
+  inpObj.setCustomValidity("");
+
+  // Validación personalizada
+  if (inpObj.value < 100) {
+    inpObj.setCustomValidity("El número es demasiado pequeño. Debe ser al menos 100.");
+  } else if (inpObj.value > 300) {
+    inpObj.setCustomValidity("El número es demasiado grande. No puede ser mayor que 300.");
+  } else {
+    inpObj.setCustomValidity(""); // Si es válido, borramos cualquier mensaje de error
+  }
+
+  // Verificación de la validez
+  if (!inpObj.checkValidity()) {
+    document.getElementById("demo").innerHTML = inpObj.validationMessage;
+  } else {
+    document.getElementById("demo").innerHTML = "Input OK";
+  }
+} 
+</script>
+
+</body>
+</html>

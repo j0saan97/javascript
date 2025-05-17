@@ -1,0 +1,29 @@
+<!--Tres métodos jQuery simples, pero útiles, para la manipulación de DOM son:
+
+text() - Establece o devuelve el contenido de texto de los elementos seleccionados
+html() - Establece o devuelve el contenido de los elementos seleccionados (incluido el marcado HTML)
+val() - Establece o devuelve el valor de los campos del formulario--> 
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    alert("Text: " + $("#test").text());
+  });
+  $("#btn2").click(function(){
+    alert("HTML: " + $("#test").html());
+  });
+});
+</script>
+</head>
+<body>
+
+<p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+
+</body>
+</html>

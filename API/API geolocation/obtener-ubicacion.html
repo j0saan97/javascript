@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocalización con JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+
+        #location-info {
+            margin-top: 20px;
+        }
+
+        #start-watch, #stop-watch {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #start-watch {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        #stop-watch {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Geolocalización en JavaScript</h1>
+
+    <div id="location-info">
+        <p><strong>Posición Actual:</strong></p>
+        <p id="current-position"></p>
+    </div>
+
+    <button id="start-watch">Iniciar WatchPosition</button>
+    <button id="stop-watch" disabled>Detener WatchPosition</button>
+
+    <script>
+        let watchId;
+
+        // Función para obtener la posición actual una sola vez
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        displayPosition(position);
+                    },
+                    (error) => {
+                        document.getElementById('current-position').textContent = `Error: ${error.message}`;
+                    }
+                );
+            } else {
+                alert("Geolocalización no es soportada por este navegador.");
+            }
+        }
+
+        // Función para mostrar la posición
+        function displayPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const accuracy = position.coords.accuracy;
+            const timestamp = new Date(position.timestamp);
+
+            document.getElementById('current-position').innerHTML = `
+                <p><strong>Latitud:</strong> ${latitude}</p>
+                <p><strong>Longitud:</strong> ${longitude}</p>
+                <p><strong>Precisión:</strong> ${accuracy} metros</p>
+                <p><strong>Timestamp:</strong> ${timestamp}</p>
+            `;
+        }
+
+        // Función para iniciar la observación de la posición
+        function startWatch() {
+            if (navigator.geolocation) {
+                watchId = navigator.geolocation.watchPosition(
+                    (position) => {
+                        displayPosition(position);
+                    },
+                    (error) => {
+                        document.getElementById('current-position').textContent = `Error: ${error.message}`;
+                    }
+                );
+
+                // Deshabilitar el botón de inicio y habilitar el de detener
+                document.getElementById('start-watch').disabled = true;
+                document.getElementById('stop-watch').disabled = false;
+
+                // Parar el watch después de 2 horas
+                setTimeout(stopWatch, 2 * 60 * 60 * 1000); // 2 horas en milisegundos
+            } else {
+                alert("Geolocalización no es soportada por este navegador.");
+            }
+        }
+
+        // Función para detener la observación de la posición
+        function stopWatch() {
+            if (watchId) {
+                navigator.geolocation.clearWatch(watchId);
+                watchId = null;
+
+                // Actualizar el estado de los botones
+                document.getElementById('start-watch').disabled = false;
+                document.getElementById('stop-watch').disabled = true;
+            }
+        }
+
+        // Asociar funciones a los botones
+        document.getElementById('start-watch').addEventListener('click', startWatch);
+        document.getElementById('stop-watch').addEventListener('click', stopWatch);
+
+        // Obtener la posición actual al cargar la página
+        getCurrentLocation();
+    </script>
+
+</body>
+</html>

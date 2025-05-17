@@ -1,0 +1,30 @@
+{
+    "categoria": "Electrónica",
+    "productos": [
+        {
+            "id": 101,
+            "nombre": "Smartphone X",
+            "marca": "TechBrand",
+            "precio": 699.99,
+            "disponible": true,
+            "especificaciones": {
+                "pantalla": "6.5 pulgadas",
+                "almacenamiento": "128GB",
+                "camara": "12MP"
+            }
+        },
+        {
+            "id": 102,
+            "nombre": "Auriculares Inalámbricos",
+            "marca": "SoundMaker",
+            "precio": 149.99,
+            "disponible": false,
+            "especificaciones": {
+                "tipo": "Bluetooth",
+                "duracion_bateria": "20 horas",
+                "cancelacion_ruido": true
+            }
+        }
+    ],
+    "totalProductos": 2
+}

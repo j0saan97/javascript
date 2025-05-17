@@ -1,0 +1,47 @@
+<!-- Los métodos first() y last() en jQuery se utilizan para seleccionar el primer y el último elemento, respectivamente,
+  de un conjunto de elementos seleccionados. Aquí tienes un ejemplo práctico para ver cómo funcionan:html-->
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de first() y last() en jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .item {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: lightgreen;
+        }
+        .highlight {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div class="item">Elemento 1</div>
+        <div class="item">Elemento 2</div>
+        <div class="item">Elemento 3</div>
+        <div class="item">Elemento 4</div>
+        <div class="item">Elemento 5</div>
+    </div>
+
+    <button id="highlightFirst">Resaltar Primer Elemento</button>
+    <button id="highlightLast">Resaltar Último Elemento</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#highlightFirst").click(function(){
+                $(".item").first().addClass("highlight"); // Selecciona y resalta el primer elemento
+            });
+
+            $("#highlightLast").click(function(){
+                $(".item").last().addClass("highlight"); // Selecciona y resalta el último elemento
+            });
+        });
+    </script>
+
+</body>
+</html>

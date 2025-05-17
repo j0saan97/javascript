@@ -1,0 +1,20 @@
+¿Por qué la composición es mejor que la herencia?
+Flexibilidad y reutilización
+La composición permite construir objetos combinando componentes o comportamientos independientes. Esto facilita reutilizar funcionalidades sin estar atado a una jerarquía rígida, como sucede con la herencia.
+
+Evita jerarquías profundas y complejas
+La herencia puede llevar a estructuras de clases muy profundas y difíciles de mantener, donde un cambio en la clase base puede afectar a muchas clases derivadas. La composición promueve relaciones más planas y modulares.
+
+Reduce el acoplamiento
+En herencia, las subclases dependen fuertemente de la implementación de las superclases, lo que genera acoplamiento fuerte. Con composición, los objetos se relacionan a través de interfaces y componentes independientes, disminuyendo el acoplamiento.
+
+Facilita la extensión y modificación
+Añadir o cambiar comportamientos es tan simple como agregar o quitar componentes en la composición, sin alterar la estructura jerárquica ni modificar clases existentes.
+
+Mejora la claridad y el mantenimiento
+Al usar composición, el código es más explícito en qué comportamientos tiene un objeto, y estos comportamientos están separados en módulos pequeños y reutilizables, lo que hace que sea más fácil de entender y mantener.
+
+Evita problemas comunes de herencia múltiple
+En lenguajes que no soportan herencia múltiple o donde esta genera conflictos (como el problema del diamante), la composición es una solución más limpia para combinar múltiples funcionalidades.
+
+En resumen, la composición ofrece un enfoque más modular, flexible y mantenible para construir software, haciendo que el código sea menos frágil y más fácil de evolucionar en el tiempo.

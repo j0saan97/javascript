@@ -1,0 +1,37 @@
+{
+    "usuario": "María Gómez",
+    "eventos": [
+        {
+            "titulo": "Reunión de Proyecto",
+            "fecha": "2024-09-01",
+            "hora": "10:00",
+            "duracion": 60,
+            "lugar": "Sala de Conferencias A",
+            "participantes": [
+                "Carlos Mendoza",
+                "Lucía Rodríguez",
+                "José Pérez"
+            ]
+        },
+        {
+            "titulo": "Cita Médica",
+            "fecha": "2024-09-02",
+            "hora": "15:30",
+            "duracion": 30,
+            "lugar": "Clínica Salud",
+            "participantes": []
+        },
+        {
+            "titulo": "Taller de JavaScript",
+            "fecha": "2024-09-10",
+            "hora": "09:00",
+            "duracion": 120,
+            "lugar": "Auditorio Principal",
+            "participantes": [
+                "María Gómez",
+                "Lucía Rodríguez"
+            ]
+        }
+    ],
+    "totalEventos": 3
+}

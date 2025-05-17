@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones con Eventos en JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn1">Clic para cambiar color de fondo</button>
+    <button id="btn2">Clic para mostrar una alerta</button>
+    <button id="btn3">Clic para añadir texto</button>
+    <button id="btn4">Clic para ocultar este botón</button>
+    <button id="btn5">Clic para cambiar tamaño del texto</button>
+    <button id="btn6">Clic para reiniciar la página</button>
+
+    <!--todos estos eventos estan manejados desde codigo js-->
+    <script>
+        // Cambiar el color de fondo
+        document.getElementById("btn1").addEventListener("click", function() {
+            document.body.style.backgroundColor = "lightblue";
+        });
+
+        // Mostrar una alerta
+        document.getElementById("btn2").addEventListener("click", function() {
+            alert("¡Has hecho clic en el botón 2!");
+        });
+
+        // Añadir texto al cuerpo del documento
+        document.getElementById("btn3").addEventListener("click", function() {
+            const nuevoTexto = document.createElement("p");
+            nuevoTexto.textContent = "Texto añadido por el botón 3.";
+            document.body.appendChild(nuevoTexto);
+        });
+
+        // Ocultar el botón
+        document.getElementById("btn4").addEventListener("click", function() {
+            this.style.display = "none";
+        });
+
+        // Cambiar el tamaño del texto de los botones
+        document.getElementById("btn5").addEventListener("click", function() {
+            const botones = document.querySelectorAll("button");
+            botones.forEach(function(boton) {
+                boton.style.fontSize = "20px";
+            });
+        });
+
+        // Reiniciar la página
+        document.getElementById("btn6").addEventListener("click", function() {
+            location.reload();
+        });
+
+        // NOTA: SI DEFINIMOS VARIS MANEJADORES PARA UN ELEMENTO SOLO TENDRÁ EFECTO LA ULTIMA ASIGNACIÓN QUE REALICEMOS.
+
+        /* iMPORTANTE: AL UTILIZAR ESTOS MANEJADORES , LAS ASIGNACIONES DEBEN HACERSE AL FINAL DE LA PAGINA O DESPUES DE QUE SE HAYA CARGADO PARA QUE TODOS LOS ELEMENTOS HTML A LOS QUE
+         HACEMOS REFERENCIA ESTÉN YA DEFINIDOS EN EL DOM, Y POR LO TANTO ACCESIBLES DESDE EL CODIGO*/
+    </script>
+
+</body>
+</html>

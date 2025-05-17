@@ -1,0 +1,36 @@
+<!--bloquear el puntero al hacer clic-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pointer Lock API Example</title>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600" style="border:1px solid black;"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+
+        // Solicita el bloqueo del puntero al hacer clic en el canvas
+        canvas.addEventListener('click', () => {
+            canvas.requestPointerLock();
+        });
+
+        // Evento que se dispara cuando se cambia el estado del bloqueo del puntero
+        document.addEventListener('pointerlockchange', () => {
+            if (document.pointerLockElement === canvas) {
+                console.log("El puntero está bloqueado en el canvas");
+                document.addEventListener('mousemove', updatePosition, false);
+            } else {
+                console.log("El puntero se ha liberado");
+                document.removeEventListener('mousemove', updatePosition, false);
+            }
+        });
+
+        // Actualiza la posición del puntero
+        function updatePosition(event) {
+            // event.movementX y event.movementY dan el desplazamiento del puntero
+            console.log(`Desplazamiento del puntero - X: ${event.movementX}, Y: ${event.movementY}`);
+        }
+    </script>
+</body>
+</html>

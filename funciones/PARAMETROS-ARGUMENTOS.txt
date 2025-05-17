@@ -1,0 +1,27 @@
+ DIFERENCIA ENTRE PARAMETROS Y ARGUMENTOS:
+
+Parámetros
+
+Los parámetros son las variables listadas como parte de la definición de una función. Son básicamente nombres que actúan como "espacios reservados" para los valores que se pasará a la función cuando se llame.
+Uso:
+
+Se definen en la declaración o expresión de la función.
+Son utilizados dentro del cuerpo de la función para recibir valores cuando se invoca la función.
+
+// Declaración de la función con parámetros 'a' y 'b'
+function sumar(a, b)
+    return a + b; // 'a' y 'b' son parámetros
+
+
+    Argumentos
+
+Los argumentos son los valores reales que se pasan a una función cuando se llama. Son los datos concretos que se utilizan para llenar los parámetros de la función.
+
+Uso:
+
+Se pasan durante la invocación de la función.
+Son los valores reales que se utilizan en lugar de los nombres de parámetros.
+
+const resultado = sumar(5, 10); // 5 y 10 son argumentos
+console.log(resultado); // 15
+

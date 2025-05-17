@@ -1,0 +1,22 @@
+<!-- valueMissing: Indica si el campo es obligatorio y no se ha llenado. -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>valueMissing Example</h2>
+
+<input id="valueMissingInput" type="text" required>
+<button onclick="checkValueMissing()">Check</button>
+<p id="valueMissingResult"></p>
+
+<script>
+function checkValueMissing() {
+    const input = document.getElementById("valueMissingInput");
+    document.getElementById("valueMissingResult").innerHTML = input.validity.valueMissing ? 
+        "El campo es obligatorio y no se ha completado." : 
+        "El campo está completo.";
+}
+</script>
+
+</body>
+</html>

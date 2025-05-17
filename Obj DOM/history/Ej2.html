@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PushState and ReplaceState Example</title>
+</head>
+<body>
+    <h1>Manipulación del historial</h1>
+    <button id="pushStateBtn">Agregar al historial</button>
+    <button id="replaceStateBtn">Reemplazar historial</button>
+    
+    <!--Manipulación del historial con history.pushState() y history.replaceState()
+    Este ejemplo muestra cómo cambiar la URL del navegador sin recargar la página y agregar una entrada al historial usando pushState o modificar la entrada actual usando replaceState-->
+    <script>
+        document.getElementById('pushStateBtn').addEventListener('click', function() {
+            history.pushState({ page: 1 }, "title 1", "?page=1");
+            console.log('Se agregó una nueva entrada al historial: ', history.state);
+        });
+
+        document.getElementById('replaceStateBtn').addEventListener('click', function() {
+            history.replaceState({ page: 2 }, "title 2", "?page=2");
+            console.log('Se reemplazó la entrada actual en el historial: ', history.state);
+        });
+
+        // Escuchar cambios en el estado del historial
+        window.onpopstate = function(event) {
+            console.log('El estado ha cambiado: ', event.state);
+        };
+    </script>
+</body>
+</html>

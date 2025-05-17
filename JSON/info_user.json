@@ -1,0 +1,27 @@
+
+
+{
+    "id": 1,
+    "nombre": "Carlos Mendoza",
+    "edad": 28,
+    "email": "carlos.mendoza@example.com",
+    "isActivo": true,
+    "amigos": [
+        {
+            "id": 2,
+            "nombre": "Lucía Rodríguez",
+            "email": "lucia.rodriguez@example.com"
+        },
+        {
+            "id": 3,
+            "nombre": "José Pérez",
+            "email": "jose.perez@example.com"
+        }
+    ],
+    "direccion": {
+        "calle": "Av. Principal",
+        "numero": 123,
+        "ciudad": "Madrid",
+        "pais": "España"
+    }
+}

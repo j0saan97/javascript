@@ -1,0 +1,38 @@
+
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-prettier"
+  ],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-prettier"
+  ],
+  "rules": {
+    "prettier/prettier": true,
+    "color-no-invalid-hex": true,
+    "font-family-no-duplicate-names": true,
+    "no-duplicate-selectors": true,
+    "block-no-empty": true,
+    "unit-no-unknown": true,
+    "property-no-unknown": true,
+    "selector-type-no-unknown": true,
+    "string-no-newline": true,
+    "declaration-block-trailing-semicolon": "always",
+    "selector-pseudo-class-no-unknown": true,
+    "indentation": 2,
+    "number-leading-zero": "always",
+    "string-quotes": "single",
+    "length-zero-no-unit": true,
+    "order/properties-alphabetical-order": true,
+    "selector-max-id": 0,
+    "selector-max-universal": 1,
+    "color-hex-length": "short",
+    "max-nesting-depth": 3,
+    "no-unknown-animations": true
+  }
+}
+
+
+
+  

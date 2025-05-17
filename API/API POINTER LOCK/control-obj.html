@@ -1,0 +1,51 @@
+<!-- control de un objeto en un juego-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pointer Lock API - Control de un Objeto</title>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600" style="border:1px solid black;"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        let x = canvas.width / 2;
+        let y = canvas.height / 2;
+
+        canvas.addEventListener('click', () => {
+            canvas.requestPointerLock();
+        });
+
+        document.addEventListener('pointerlockchange', () => {
+            if (document.pointerLockElement === canvas) {
+                document.addEventListener('mousemove', movePlayer, false);
+            } else {
+                document.removeEventListener('mousemove', movePlayer, false);
+            }
+        });
+
+        function movePlayer(event) {
+            x += event.movementX;
+            y += event.movementY;
+
+            // Evitar que el jugador se salga de los límites del canvas
+            x = Math.max(0, Math.min(canvas.width, x));
+            y = Math.max(0, Math.min(canvas.height, y));
+
+            draw();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(x, y, 15, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        draw();
+    </script>
+</body>
+</html>

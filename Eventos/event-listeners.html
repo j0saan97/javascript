@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--1. Escuchar un evento de clic en un botón-->
+    <button id="myButton">Haz clic aquí</button>
+
+        <script>
+        document.getElementById('myButton').addEventListener('click', function() {
+            alert('¡Botón clickeado!');
+        });
+        </script>
+
+
+<!--2. Escuchar un evento de teclado-->
+
+<input type="text" id="myInput" placeholder="Escribe algo">
+
+    <script>
+    document.getElementById('myInput').addEventListener('keydown', function(event) {
+        console.log('Tecla presionada:', event.key);
+    });
+    </script>
+
+<!--3. Escuchar un evento de mouseover-->
+<div id="myDiv" style="width: 200px; height: 200px; background-color: lightblue;">
+    Pasa el ratón por aquí
+</div>
+
+    <script>
+    document.getElementById('myDiv').addEventListener('mouseover', function() {
+        this.style.backgroundColor = 'lightgreen';
+    });
+    document.getElementById('myDiv').addEventListener('mouseout', function() {
+        this.style.backgroundColor = 'lightblue';
+    });
+    </script>
+
+<!--4. Remover un Event Listener-->
+
+<button id="myButton">Haz clic aquí</button>
+<button id="removeListener">Remover listener</button>
+
+    <script>
+    function showAlert() {
+        alert('¡Botón clickeado!');
+    }
+
+    document.getElementById('myButton').addEventListener('click', showAlert);
+
+    document.getElementById('removeListener').addEventListener('click', function() {
+        document.getElementById('myButton').removeEventListener('click', showAlert);
+        alert('Listener removido');
+    });
+    </script>
+
+<!--5. Escuchar múltiples eventos en un mismo elemento-->
+
+<button id="myButton">Interactúa conmigo</button>
+
+    <script>
+    document.getElementById('myButton').addEventListener('click', function() {
+        console.log('Clic en el botón');
+    });
+
+    document.getElementById('myButton').addEventListener('mouseover', function() {
+        console.log('El ratón está sobre el botón');
+    });
+
+    document.getElementById('myButton').addEventListener('mouseout', function() {
+        console.log('El ratón se ha movido fuera del botón');
+    });
+    </script>
+
+</body>
+</html>

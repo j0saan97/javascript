@@ -1,0 +1,22 @@
+<!-- valid: Indica si el campo es válido en general (todos los criterios de validación se cumplen).-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>valid Example</h2>
+
+<input id="validInput" type="text" required pattern="[A-Za-z]{5}" maxlength="5">
+<button onclick="checkValid()">Check</button>
+<p id="validResult"></p>
+
+<script>
+function checkValid() {
+    const input = document.getElementById("validInput");
+    document.getElementById("validResult").innerHTML = input.validity.valid ? 
+        "El campo es válido." : 
+        "El campo no es válido.";
+}
+</script>
+
+</body>
+</html>

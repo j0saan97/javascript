@@ -1,0 +1,53 @@
+<!--Los métodos empty() y remove() en jQuery se utilizan para manipular el DOM eliminando elementos de diferentes maneras:
+
+empty(): Elimina todos los elementos hijos de un elemento seleccionado, pero no el propio elemento.
+remove(): Elimina el elemento seleccionado y todos sus elementos hijos.-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de empty() y remove() en jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #container {
+            width: 300px;
+            height: auto;
+            background-color: lightcoral;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        p {
+            background-color: white;
+            padding: 10px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <p>Este es el primer párrafo.</p>
+        <p>Este es el segundo párrafo.</p>
+        <p>Este es el tercer párrafo.</p>
+    </div>
+
+    <button id="emptyButton">Vaciar Contenido</button>
+    <button id="removeButton">Eliminar Elemento</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#emptyButton").click(function(){
+                $("#container").empty(); // Elimina el contenido interno del div #container
+            });
+
+            $("#removeButton").click(function(){
+                $("#container").remove(); // Elimina el div #container por completo
+            });
+        });
+    </script>
+
+</body>
+</html>
+

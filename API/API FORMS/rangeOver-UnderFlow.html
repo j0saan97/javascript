@@ -1,0 +1,42 @@
+<!-- rangeOverFlow , rangeUnderFlow-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>rangeOverflow y rangeUnderflow Example</h2>
+
+<!-- Input para rangeOverflow -->
+<p>Introduce un número menor o igual a 10:</p>
+<input id="rangeOverflowInput" type="number" max="10">
+<button onclick="checkRangeOverflow()">Check Range Overflow</button>
+<p id="rangeOverflowResult"></p>
+
+<!-- Input para rangeUnderflow -->
+<p>Introduce un número mayor o igual a 5:</p>
+<input id="rangeUnderflowInput" type="number" min="5">
+<button onclick="checkRangeUnderflow()">Check Range Underflow</button>
+<p id="rangeUnderflowResult"></p>
+
+<script>
+function checkRangeOverflow() {
+    const input = document.getElementById("rangeOverflowInput");
+    if (input.validity.rangeOverflow) {
+        document.getElementById("rangeOverflowResult").innerHTML = "El valor es mayor que el máximo permitido (10).";
+    } else {
+        document.getElementById("rangeOverflowResult").innerHTML = "El valor está dentro del rango permitido.";
+    }
+}
+
+function checkRangeUnderflow() {
+    const input = document.getElementById("rangeUnderflowInput");
+    if (input.validity.rangeUnderflow) {
+        document.getElementById("rangeUnderflowResult").innerHTML = "El valor es menor que el mínimo permitido (5).";
+    } else {
+        document.getElementById("rangeUnderflowResult").innerHTML = "El valor está dentro del rango permitido.";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!--- typeMismatch: Indica si el valor del campo no coincide con el tipo especificado (por ejemplo, email, url).-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>typeMismatch Example</h2>
+
+<input id="typeMismatchInput" type="email">
+<button onclick="checkTypeMismatch()">Check</button>
+<p id="typeMismatchResult"></p>
+
+<script>
+function checkTypeMismatch() {
+    const input = document.getElementById("typeMismatchInput");
+    document.getElementById("typeMismatchResult").innerHTML = input.validity.typeMismatch ? 
+        "El valor no es un email válido." : 
+        "El valor es un email válido.";
+}
+</script>
+
+</body>
+</html>

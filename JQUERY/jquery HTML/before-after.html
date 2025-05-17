@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de before() y after() en jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #contenido {
+            width: 300px;
+            height: 200px;
+            background-color: lightgreen;
+            margin-top: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contenido">
+        <p>Este es el contenido principal.</p>
+    </div>
+
+    <button id="beforeButton">Insertar Antes</button>
+    <button id="afterButton">Insertar Después</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#beforeButton").click(function(){
+                $("#contenido").before("<p>Texto añadido antes del contenido.</p>");
+            });
+
+            $("#afterButton").click(function(){
+                $("#contenido").after("<p>Texto añadido después del contenido.</p>");
+            });
+        });
+    </script>
+
+</body>
+</html>
