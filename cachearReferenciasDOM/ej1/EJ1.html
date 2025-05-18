@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos Básicos de Manipulación DOM</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; }
+    section { margin-bottom: 2rem; }
+    h2 { margin-bottom: 0.5rem; }
+    .container { padding: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+    button { margin-top: 0.5rem; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Ejemplos Básicos de Manipulación DOM</h1>
+
+  <!-- Ejemplo 1: createElement -->
+  <section>
+    <h2>1. createElement</h2>
+    <button id="btn1">Crear y agregar caja</button>
+    <div id="resultado1" class="container"></div>
+  </section>
+
+  <!-- Ejemplo 2: <template> -->
+  <section>
+    <h2>2. &lt;template&gt; y cloneNode</h2>
+    <template id="tpl-item">
+      <li class="item">[Texto]</li>
+    </template>
+    <button id="btn2">Agregar ítem A y B</button>
+    <ul id="resultado2" class="container"></ul>
+  </section>
+
+  <!-- Ejemplo 3: innerHTML -->
+  <section>
+    <h2>3. innerHTML con string</h2>
+    <button id="btn3">Insertar tarjeta</button>
+    <div id="resultado3" class="container"></div>
+  </section>
+
+  <!-- Ejemplo 4: DocumentFragment -->
+  <section>
+    <h2>4. DocumentFragment</h2>
+    <button id="btn4">Agregar lista de ítems</button>
+    <ul id="resultado4" class="container"></ul>
+  </section>
+
+  <!-- Enlazamos el archivo externo de JavaScript -->
+  <script src="cacheandoNodosHtml.js"></script>
+</body>
+</html>
