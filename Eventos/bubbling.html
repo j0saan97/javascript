@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bubbling ejemplo</title>
+</head>
+<body>
+
+  <div id="padre" style="padding: 30px; background-color: lightblue;">
+    DIV PADRE
+    <button id="hijo">Haz clic aquí</button>
+  </div>
+
+  <script>
+    // Evento en el botón hijo
+    document.getElementById("hijo").addEventListener("click", function () {
+      console.log("Clic en BOTÓN");
+    });
+
+    // Evento en el div padre
+    document.getElementById("padre").addEventListener("click", function () {
+      console.log("Clic en DIV PADRE");
+    });
+  </script>
+
+</body>
+</html>
