@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejemplo de window y DOM</title>
+</head>
+<body>
+
+  <h1 id="titulo">Hola, mundo!</h1>
+  <button id="btnCambiar">Cambiar título</button>
+
+  <script>
+    // Accedemos al objeto window (no es obligatorio poner window., pero así se ve claro)
+    window.onload = function() {
+      // Referencia al botón y al título
+      const boton = window.document.getElementById("btnCambiar");
+      const titulo = window.document.getElementById("titulo");
+
+      // Cuando se haga clic en el botón, cambia el texto del título
+      boton.addEventListener("click", function() {
+        // Cambiamos el texto del elemento h1
+        titulo.textContent = "¡Título cambiado con window y DOM!";
+        
+        // Mostramos una alerta usando window.alert
+        window.alert("¡Has cambiado el título!");
+      });
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Más métodos del objeto Element</title>
+  <style>
+    .bloque {
+      border: 1px solid #aaa;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+    .nuevo {
+      background-color: #f9f9f9;
+      border-left: 5px solid #2196f3;
+      padding-left: 10px;
+    }
+    .resaltado {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Métodos adicionales del objeto <code>Element</code></h1>
+
+  <div class="bloque" id="original" data-importante="true">
+    <p>Este es el bloque original.</p>
+    <button onclick="insertarAntes()">Insertar antes</button>
+    <button onclick="insertarDespues()">Insertar después</button>
+    <button onclick="reemplazar()">Reemplazar este bloque</button>
+    <button onclick="clonar()">Clonar bloque</button>
+    <button onclick="verificarAtributo()">Verificar atributo</button>
+    <button onclick="quitarAtributo()">Quitar atributo</button>
+    <button onclick="alternarAtributo()">Alternar atributo</button>
+    <button onclick="resaltar()">Hacer scroll hacia mí</button>
+  </div>
+
+  <script>
+    function insertarAntes() {
+      const original = document.getElementById('original');
+      original.insertAdjacentHTML('beforebegin', '<div class="bloque nuevo">📌 Bloque insertado *antes* con <code>insertAdjacentHTML()</code></div>');
+    }
+
+    function insertarDespues() {
+      const original = document.getElementById('original');
+      const nuevoElemento = document.createElement('div');
+      nuevoElemento.className = 'bloque nuevo';
+      nuevoElemento.textContent = '📌 Elemento insertado *después* con insertAdjacentElement()';
+      original.insertAdjacentElement('afterend', nuevoElemento);
+    }
+
+    function reemplazar() {
+      const original = document.getElementById('original');
+      const reemplazo = document.createElement('div');
+      reemplazo.className = 'bloque nuevo';
+      reemplazo.textContent = '⚠️ Este bloque ha sido reemplazado usando replaceWith()';
+      original.replaceWith(reemplazo);
+    }
+
+    function clonar() {
+      const original = document.getElementById('original');
+      const clon = original.cloneNode(true); // true = clonar también el contenido interno
+      clon.id = 'clonado';
+      clon.querySelector('p').textContent = '👯 Este es un clon del original.';
+      original.insertAdjacentElement('afterend', clon);
+    }
+
+    function verificarAtributo() {
+      const original = document.getElementById('original');
+      alert(original.hasAttribute('data-importante') ? '✅ Atributo presente' : '❌ No tiene el atributo');
+    }
+
+    function quitarAtributo() {
+      const original = document.getElementById('original');
+      original.removeAttribute('data-importante');
+      alert('Atributo eliminado');
+    }
+
+    function alternarAtributo() {
+      const original = document.getElementById('original');
+      const resultado = original.toggleAttribute('data-visible');
+      alert(`Atributo data-visible ahora está: ${resultado ? 'activo' : 'inactivo'}`);
+    }
+
+    function resaltar() {
+      const original = document.getElementById('original');
+      original.classList.add('resaltado');
+      original.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+
+</body>
+</html>

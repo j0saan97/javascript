@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo con window</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo de métodos del objeto <code>window</code></h1>
+
+  <button onclick="mostrarAlerta()">Mostrar alert()</button>
+  <button onclick="mostrarConfirm()">Mostrar confirm()</button>
+  <button onclick="mostrarPrompt()">Mostrar prompt()</button>
+  <button onclick="abrirVentana()">Abrir nueva ventana</button>
+  <button onclick="cerrarVentana()">Cerrar nueva ventana</button>
+  <button onclick="iniciarTemporizador()">Iniciar setTimeout()</button>
+  <button onclick="iniciarIntervalo()">Iniciar setInterval()</button>
+  <button onclick="detenerIntervalo()">Detener setInterval()</button>
+  <p><strong>Tamaño de la ventana:</strong> <span id="tamanoVentana"></span></p>
+
+  <script>
+    // Mostrar dimensiones de la ventana
+    function actualizarTamañoVentana() {
+      document.getElementById('tamanoVentana').textContent = 
+        `${window.innerWidth}px x ${window.innerHeight}px`;
+    }
+    window.addEventListener('resize', actualizarTamañoVentana);
+    actualizarTamañoVentana(); // Inicial
+
+    function mostrarAlerta() {
+      window.alert('Esto es una alerta con window.alert()');
+    }
+
+    function mostrarConfirm() {
+      const resultado = window.confirm('¿Estás seguro?');
+      alert('Elegiste: ' + (resultado ? 'Aceptar' : 'Cancelar'));
+    }
+
+    function mostrarPrompt() {
+      const nombre = window.prompt('¿Cuál es tu nombre?');
+      if (nombre) {
+        alert('Hola, ' + nombre + '!');
+      } else {
+        alert('No escribiste nada.');
+      }
+    }
+
+    let nuevaVentana;
+    function abrirVentana() {
+      nuevaVentana = window.open('https://example.com', '_blank', 'width=600,height=400');
+    }
+
+    function cerrarVentana() {
+      if (nuevaVentana && !nuevaVentana.closed) {
+        nuevaVentana.close();
+      } else {
+        alert('No hay ninguna ventana abierta.');
+      }
+    }
+
+    // setTimeout demo
+    function iniciarTemporizador() {
+      window.setTimeout(() => {
+        alert('Esto aparece después de 2 segundos (setTimeout)');
+      }, 2000);
+    }
+
+    // setInterval demo
+    let intervaloID;
+    function iniciarIntervalo() {
+      if (!intervaloID) {
+        intervaloID = window.setInterval(() => {
+          console.log('Intervalo activo: ' + new Date().toLocaleTimeString());
+        }, 1000);
+        alert('Intervalo iniciado. Ver consola.');
+      }
+    }
+
+    function detenerIntervalo() {
+      if (intervaloID) {
+        clearInterval(intervaloID);
+        intervaloID = null;
+        alert('Intervalo detenido.');
+      }
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo avanzada del objeto Element</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .card {
+      border: 2px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .resaltado {
+      background-color: #e6ffe6;
+      border-color: green;
+    }
+    .oculto {
+      display: none;
+    }
+    .botones {
+      margin-top: 10px;
+    }
+    button {
+      margin: 3px;
+      padding: 6px 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ejemplo completo del objeto <code>Element</code></h1>
+
+  <div class="card" id="tarjeta1" data-id="101">
+    <h3>Tarjeta 1</h3>
+    <p class="contenido">Este es el contenido inicial de la tarjeta 1.</p>
+    <div class="botones">
+      <button onclick="resaltar(this)">Resaltar</button>
+      <button onclick="cambiarContenido(this)">Cambiar contenido</button>
+      <button onclick="mostrarID(this)">Mostrar data-id</button>
+      <button onclick="eliminarTarjeta(this)">Eliminar</button>
+    </div>
+  </div>
+
+  <div class="card" id="tarjeta2" data-id="102">
+    <h3>Tarjeta 2</h3>
+    <p class="contenido">Este es el contenido inicial de la tarjeta 2.</p>
+    <div class="botones">
+      <button onclick="resaltar(this)">Resaltar</button>
+      <button onclick="cambiarContenido(this)">Cambiar contenido</button>
+      <button onclick="mostrarID(this)">Mostrar data-id</button>
+      <button onclick="eliminarTarjeta(this)">Eliminar</button>
+    </div>
+  </div>
+
+  <script>
+    function resaltar(boton) {
+      const tarjeta = boton.closest('.card'); // Element.closest()
+      tarjeta.classList.toggle('resaltado');  // classList.toggle()
+    }
+
+    function cambiarContenido(boton) {
+      const tarjeta = boton.closest('.card');
+      const parrafo = tarjeta.querySelector('.contenido'); // Element.querySelector()
+      
+      if (parrafo.classList.contains('modificado')) {
+        parrafo.innerHTML = 'Este es el contenido inicial restaurado.';
+        parrafo.classList.remove('modificado');
+      } else {
+        parrafo.innerHTML = '<strong>Contenido modificado</strong> usando <code>innerHTML</code>.';
+        parrafo.classList.add('modificado');
+      }
+    }
+
+    function mostrarID(boton) {
+      const tarjeta = boton.closest('.card');
+      const id = tarjeta.dataset.id; // acceso a data-id
+      alert('El ID de esta tarjeta es: ' + id);
+    }
+
+    function eliminarTarjeta(boton) {
+      const tarjeta = boton.closest('.card');
+      if (confirm('¿Seguro que quieres eliminar esta tarjeta?')) {
+        tarjeta.remove(); // Element.remove()
+      }
+    }
+  </script>
+
+</body>
+</html>

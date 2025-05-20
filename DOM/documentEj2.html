@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Otro ejemplo con document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .destacado {
+      color: darkred;
+      font-weight: bold;
+    }
+    button {
+      margin: 5px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="destacado">Ejemplo 2 - Métodos del objeto <code>document</code></h1>
+
+  <p class="destacado">Este es un párrafo destacado.</p>
+  <p>Otro párrafo normal.</p>
+  <ul id="lista">
+    <li>Elemento 1</li>
+    <li>Elemento 2</li>
+    <li>Elemento 3</li>
+  </ul>
+
+  <button onclick="resaltarParrafos()">Resaltar párrafos</button>
+  <button onclick="mostrarEstructura()">Mostrar estructura del documento</button>
+  <button onclick="agregarTexto()">Agregar texto sin HTML</button>
+  <button onclick="eliminarUltimoElemento()">Eliminar último elemento de la lista</button>
+
+  <div id="info" style="margin-top: 20px;"></div>
+
+  <script>
+    function resaltarParrafos() {
+      const parrafos = document.getElementsByTagName('p');
+      for (let p of parrafos) {
+        p.style.backgroundColor = '#ffffcc';
+      }
+
+      const destacados = document.getElementsByClassName('destacado');
+      for (let d of destacados) {
+        d.style.border = '1px solid orange';
+        d.style.padding = '5px';
+      }
+    }
+
+    function mostrarEstructura() {
+      const info = document.getElementById('info');
+      info.innerHTML = `
+        <p><strong>document.head:</strong> ${document.head.nodeName}</p>
+        <p><strong>document.body:</strong> ${document.body.nodeName}</p>
+        <p><strong>document.documentElement:</strong> ${document.documentElement.nodeName}</p>
+        <p><strong>Total de párrafos:</strong> ${document.querySelectorAll('p').length}</p>
+      `;
+    }
+
+    function agregarTexto() {
+      const nuevoTexto = document.createTextNode('→ Texto agregado sin etiquetas HTML.');
+      document.getElementById('info').appendChild(nuevoTexto);
+    }
+
+    function eliminarUltimoElemento() {
+      const lista = document.getElementById('lista');
+      const ultElemento = lista.lastElementChild;
+      if (ultElemento) {
+        lista.removeChild(ultElemento);
+      }
+    }
+  </script>
+</body>
+</html>

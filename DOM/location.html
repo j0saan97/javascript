@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo con location</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Objeto location en JavaScript</h1>
+  <p><strong>URL actual:</strong> <span id="current-url"></span></p>
+  <p><strong>Hostname:</strong> <span id="hostname"></span></p>
+  <p><strong>Pathname:</strong> <span id="pathname"></span></p>
+  <p><strong>Protocolo:</strong> <span id="protocol"></span></p>
+
+  <button onclick="recargarPagina()">Recargar página</button>
+  <button onclick="irAGoogle()">Ir a Google</button>
+  <button onclick="reemplazarConBing()">Reemplazar con Bing</button>
+
+  <script>
+    // Mostrar información de la URL actual
+    document.getElementById('current-url').textContent = location.href;
+    document.getElementById('hostname').textContent = location.hostname;
+    document.getElementById('pathname').textContent = location.pathname;
+    document.getElementById('protocol').textContent = location.protocol;
+
+    // Funciones para interactuar con location
+    function recargarPagina() {
+      location.reload(); // Recarga la página actual
+    }
+
+    function irAGoogle() {
+      location.href = 'https://www.google.com'; // Redirecciona (puede usar el botón "Atrás" para volver)
+    }
+
+    function reemplazarConBing() {
+      location.replace('https://www.bing.com'); // Redirecciona sin posibilidad de volver con "Atrás"
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo con document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+    }
+    .caja {
+      background-color: #f0f0f0;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo de métodos del objeto <code>document</code></h1>
+
+  <p><strong>Título actual:</strong> <span id="tituloPagina"></span></p>
+
+  <button onclick="cambiarTitulo()">Cambiar título</button>
+  <button onclick="crearElemento()">Crear nuevo elemento</button>
+  <button onclick="modificarContenido()">Modificar contenido</button>
+  <button onclick="escribirConDocumentWrite()">Usar document.write()</button>
+
+  <div id="contenedor" class="caja">
+    <p id="parrafo">Este es un párrafo que será modificado.</p>
+  </div>
+
+  <script>
+    // Mostrar título actual
+    document.getElementById('tituloPagina').textContent = document.title;
+
+    function cambiarTitulo() {
+      document.title = 'Título cambiado por JavaScript';
+      document.getElementById('tituloPagina').textContent = document.title;
+    }
+
+    function crearElemento() {
+      const nuevo = document.createElement('p');
+      nuevo.textContent = 'Este es un nuevo elemento creado dinámicamente.';
+      nuevo.style.color = 'green';
+      document.body.appendChild(nuevo);
+    }
+
+    function modificarContenido() {
+      const parrafo = document.querySelector('#parrafo');
+      parrafo.innerHTML = '<strong>El contenido ha sido actualizado</strong>';
+      parrafo.style.color = 'blue';
+    }
+
+    function escribirConDocumentWrite() {
+      document.write('<h2 style="color:red;">¡Cuidado! Usaste document.write()</h2>');
+      document.write('<p>Esto reemplaza toda la página si se usa después de que cargue el DOM.</p>');
+    }
+  </script>
+</body>
+</html>
