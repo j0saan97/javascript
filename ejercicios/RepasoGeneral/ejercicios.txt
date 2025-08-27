@@ -1,0 +1,111 @@
+Variables y Tipos de Datos
+Ejercicio Básico: Declara una variable llamada nombre con tu nombre, una variable edad con tu edad, y una variable esProgramador que sea un booleano. Luego, crea un string de plantilla (template literal) que incluya las tres variables.
+
+Ejercicio Intermedio: Escribe una función que reciba un valor y retorne el tipo de dato de ese valor (por ejemplo, number, string, boolean). Prueba la función con al menos 5 tipos de datos diferentes, incluyendo null y undefined.
+
+Ejercicio Avanzado: Crea un objeto llamado usuario que contenga propiedades de diferentes tipos de datos (por ejemplo, nombre (string), edad (number), habilidades (array), activo (boolean)). Luego, usando la conversión explícita, convierte el valor de la propiedad edad a un string y el valor de activo a un number y muestra ambos resultados en la consola.
+
+Estructuras de Control (Condicionales y Bucles)
+Ejercicio Básico: Pide al usuario que ingrese un número. Usa una sentencia if/else if/else para determinar si el número es par, impar o cero. Muestra el resultado en un alert.
+
+Ejercicio Intermedio: Escribe un programa que recorra los números del 1 al 100. Para los múltiplos de 3, muestra "Fizz". Para los múltiplos de 5, muestra "Buzz". Para los múltiplos de 3 y 5, muestra "FizzBuzz". Para el resto, muestra el número.
+
+Ejercicio Avanzado: Crea una función que reciba un array de números y, usando un bucle for, encuentre el número más grande y el más pequeño del array. La función debe retornar un objeto con las propiedades max y min.
+
+Funciones
+Ejercicio Básico: Escribe una función de flecha (arrow function) que reciba dos números como argumentos y retorne su suma. Llama a la función y muestra el resultado en la consola.
+
+Ejercicio Intermedio: Escribe una función que reciba una cadena de texto y retorne la misma cadena pero al revés. Por ejemplo, "hola" debería retornar "aloh". Considera las diferentes formas de hacerlo (bucles, métodos de array).
+
+Ejercicio Avanzado: Crea una función llamada generadorAleatorio que tome un número n como argumento. La función debe generar y retornar un array de n números aleatorios entre 1 y 100.
+
+Objetos, POO y Prototipos
+Ejercicio Básico: Crea un objeto literal llamado libro con las propiedades titulo, autor y paginas. Agrega un método llamado mostrarDetalles que imprima los detalles del libro en la consola.
+
+Ejercicio Intermedio: Crea una función constructora llamada Coche que reciba marca, modelo y año. Crea dos instancias de Coche. Luego, usando el prototipo, agrega un método antiguedad al constructor Coche que retorne los años transcurridos desde que se fabricó el coche.
+
+Ejercicio Avanzado: Implementa un sistema de herencia usando la sintaxis de clases de ES6 (class). Crea una clase Animal con un método hablar(). Luego, crea una clase Perro que herede de Animal y sobreescriba el método hablar() para que diga "Guau". Crea instancias de ambas clases y llama a sus métodos.
+
+DOM y Eventos
+Ejercicio Básico: Crea un archivo HTML con un botón y un párrafo. Al hacer clic en el botón, el texto del párrafo debe cambiar a "¡El botón fue presionado!".
+
+Ejercicio Intermedio: Agrega un input de texto y un botón a tu HTML. Al hacer clic en el botón, el valor del input debe aparecer como un nuevo elemento de lista (<li>) en una lista desordenada (<ul>).
+
+Ejercicio Avanzado: Crea una página con varios botones de diferentes colores. Al pasar el mouse sobre un botón, el color de fondo de la página debe cambiar al color de ese botón. Asegúrate de que el color vuelva a su estado original al sacar el mouse.
+
+Composición vs. Herencia
+Ejercicio Básico: Define un objeto caminante con un método caminar() y un objeto volador con un método volar(). Crea un objeto pato que combine las funcionalidades de ambos objetos usando composición, sin usar herencia.
+
+Ejercicio Intermedio: Crea una clase Luchador con un método atacar(). Crea una clase Mago con un método lanzarHechizo(). Luego, crea una clase GuerreroMago que combine las habilidades de ambos usando composición, haciendo que GuerreroMago contenga instancias de Luchador y Mago.
+
+Ejercicio Avanzado: Considera la herencia: ClaseB extiende de ClaseA. Luego, refactoriza el código para usar composición en su lugar, donde ClaseB simplemente tiene una instancia de ClaseA como una de sus propiedades. Explica las ventajas de este enfoque en tu código, como la flexibilidad y la reducción del acoplamiento.
+
+Promesas y Operaciones Asíncronas
+Ejercicio Básico: Crea una función que retorne una Promise que se resuelva después de 2 segundos con el mensaje "Promesa resuelta". Llama a la función y usa .then() para mostrar el mensaje en la consola.
+
+Ejercicio Intermedio: Crea una función que simule una llamada a una API usando fetch. La función debe recibir una URL. Si la llamada es exitosa, debe retornar los datos. Si falla, debe manejar el error y mostrar un mensaje apropiado.
+
+Ejercicio Avanzado: Usa async/await para reescribir el ejercicio intermedio. La función debe ser async y usar await para esperar la respuesta de fetch. Usa un bloque try/catch para manejar los posibles errores de la promesa.
+
+Desestructuración y Spread Operator
+Ejercicio Básico: Dado un objeto coche con propiedades marca, modelo y año, usa la desestructuración de objetos para asignar las propiedades a variables con el mismo nombre.
+
+Ejercicio Intermedio: Dado un array de nombres, usa el operador spread (...) para crear un nuevo array que contenga todos los nombres del array original más un par de nombres adicionales.
+
+Ejercicio Avanzado: Crea una función que reciba un objeto de opciones. Dentro de la función, usa desestructuración para extraer las propiedades ancho, alto y color, asignando valores predeterminados para cada una. Usa el operador rest (...) para agrupar las propiedades restantes en un nuevo objeto llamado otrasPropiedades.
+
+Expresiones Regulares
+Ejercicio Básico: Crea una expresión regular que verifique si una cadena de texto es un número de teléfono válido en un formato simple (por ejemplo, 123-456-7890).
+
+Ejercicio Intermedio: Escribe una función que tome una cadena de texto y use una expresión regular para encontrar y reemplazar todas las ocurrencias de una palabra específica con otra. La búsqueda debe ser insensible a mayúsculas y minúsculas.
+
+Ejercicio Avanzado: Crea una expresión regular que valide una dirección de correo electrónico básica. La expresión debe verificar la presencia de un @, un dominio, y una extensión (.com, .es, etc.).
+
+Módulos
+Ejercicio Básico: Crea un archivo utils.js que exporte una función llamada sumar y otra llamada restar. Luego, en un archivo main.js, importa y usa ambas funciones.
+
+Ejercicio Intermedio: Crea un módulo llamado geometria.js que exporte un objeto con dos métodos: calcularAreaCirculo y calcularPerimetroCirculo. Usa la exportación nombrada.
+
+Ejercicio Avanzado: Crea un módulo llamado perfil.js que use export default para exportar un objeto que represente a un usuario. Luego, en main.js, importa este objeto y muestra en la consola el nombre de usuario y su edad.
+
+NODE
+Ejercicio Básico: Crea un archivo llamado app.js que utilice el módulo fs para leer un archivo de texto llamado data.txt de manera asíncrona. Imprime el contenido del archivo en la consola cuando la lectura termine.
+
+Ejercicio Intermedio: Utiliza el módulo http para crear un servidor web básico en Node.js que escuche en el puerto 3000. El servidor debe responder con el mensaje "¡Hola desde Node.js!" para todas las solicitudes.
+
+Ejercicio Avanzado: Combina los módulos http y fs. Crea un servidor que, al recibir una solicitud, lea un archivo HTML llamado index.html y lo sirva como respuesta. Si el archivo no existe, debe responder con un código de estado 404.
+
+Depuración de Código
+Ejercicio Básico: Dado un programa sencillo que suma dos números, introduce un error lógico (por ejemplo, a - b en lugar de a + b). Usa console.log() para imprimir el valor de las variables y encontrar el error.
+
+Ejercicio Intermedio: Dado un bucle que recorre un array y realiza una operación, introduce un error de tipo (type error). Usa el depurador del navegador (DevTools) para establecer un punto de interrupción (breakpoint) y revisar el valor y tipo de las variables en cada iteración hasta encontrar la causa del error.
+
+Ejercicio Avanzado: Crea un programa con una función que genera una serie de números de forma recursiva. Haz que la función entre en un bucle infinito por error. Utiliza la pestaña "Call Stack" en el depurador para observar el desbordamiento de la pila de llamadas y corregir el error.
+
+Generadores
+Ejercicio Básico: Escribe una función generadora llamada secuencia que produzca una secuencia infinita de números empezando desde 0. Usa un bucle while y yield para retornar el siguiente número en cada llamada. Usa next() para obtener los primeros 5 números.
+
+Ejercicio Intermedio: Crea una función generadora llamada cicloArray que tome un array como argumento. La función debe yield cada elemento del array en un bucle infinito, volviendo al inicio del array una vez que llega al final.
+
+Ejercicio Avanzado: Implementa un generador que, dado un rango de inicio y fin, produzca todos los números primos dentro de ese rango. La lógica para verificar si un número es primo debe estar dentro de la función generadora.
+
+JSON
+Ejercicio Básico: Dado un objeto JavaScript, usa JSON.stringify() para convertirlo en una cadena de texto en formato JSON. Luego, imprime el resultado en la consola.
+
+Ejercicio Intermedio: Dado un string de texto en formato JSON, usa JSON.parse() para convertirlo de nuevo en un objeto JavaScript. Luego, accede y muestra una propiedad específica de ese objeto.
+
+Ejercicio Avanzado: Simula la obtención de datos de una API. Crea un string JSON complejo que represente una lista de usuarios, donde cada usuario tiene un nombre, una edad y un array de hobbies. Usa JSON.parse() para convertirlo y luego itera sobre el array de usuarios para mostrar sus nombres y hobbies en la consola.
+
+JEST Testeo Código
+Ejercicio Básico: Crea un archivo suma.js con una función sumar(a, b) que retorne la suma de sus argumentos. En un archivo de test, crea una prueba (test) con expect() que asegure que sumar(1, 2) sea igual a 3.
+
+Ejercicio Intermedio: Escribe una función llamada esPar(numero) que retorne true si el número es par y false si es impar. En el test, incluye múltiples casos de prueba (test.each) para probar números pares, impares y el número 0.
+
+Ejercicio Avanzado: Crea una función asíncrona que simule una llamada a una API y retorne un objeto de usuario. Escribe un test que use async/await para probar si la función retorna el objeto de usuario esperado, asegurándote de que la prueba espere a que la promesa se resuelva.
+
+TYPESCRIPT
+Ejercicio Básico: Escribe una función en TypeScript llamada saludar que acepte un argumento nombre de tipo string y retorne un saludo. Luego, intenta llamar a la función con un número en lugar de un string y observa el error de tipado.
+
+Ejercicio Intermedio: Define una interfaz llamada Usuario con las propiedades id (número), nombre (string) y email (string opcional). Luego, crea un array de objetos que cumplan con esta interfaz.
+
+Ejercicio Avanzado: Crea una clase Rectangulo con propiedades ancho y alto de tipo number. Define un método area que retorne el área del rectángulo. Asegúrate de que las propiedades estén tipadas y que el método también retorne el tipo correcto. Luego, crea una instancia de la clase y llama al método.
