@@ -1,0 +1,12 @@
+{
+  "name": "jest-testeo-codigo",
+  "version": "1.0.0",
+  "description": "Proyecto para testing con Jest.",
+  "main": "suma.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
