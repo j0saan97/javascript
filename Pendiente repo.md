@@ -17,11 +17,6 @@ Interface Segregation Principle (ISP): Principio de Segregación de Interfaces. 
 
 Dependency Inversion Principle (DIP): Principio de Inversión de Dependencias. Depende de abstracciones, no de concreciones.
 
-2. 🧩 Composición sobre Herencia
-Esto es CRUCIAL en JavaScript moderno y para aplicaciones grandes. * Tienes una carpeta llamada Composicion VS herencia: ¡Esto es excelente! Asegúrate de que el contenido de esta carpeta promueva la Composición como patrón preferido.
-
-Profundiza en patrones como Mixins, Traits o Funciones Factoría (Factory Functions) para construir objetos con comportamiento reutilizable, evitando las trampas de la jerarquía de herencia.
-
 3. ✨ Patrones de Diseño (Design Patterns)
 Los patrones de diseño son soluciones probadas a problemas comunes de diseño de software.
 
@@ -31,9 +26,3 @@ Estructurales: (Ej: Adapter, Decorator, Facade). Ayudan a estructurar la relaci�
 
 Comportamentales: (Ej: Strategy, Observer). Definen cómo los objetos interactúan y comunican entre sí. El patrón Observer (Manejando Eventos) es fundamental en desarrollo Frontend/Backend.
 
-4. 🔀 Uso de TypeScript (TYPESCRIPT)
-Tienes una carpeta para TYPESCRIPT, y su dominio es imprescindible para POO clara en aplicaciones grandes.
-
-TypeScript te permite definir interfaces (que se solapan con los principios LSP e ISP) y tipos de datos complejos, forzando una estructura orientada a objetos más robusta y fácil de refactorizar.
-
-Asegúrate de practicar la definición de Clases Abstractas, Interfaces y el uso de Modificadores de Acceso (public, private, protected) para encapsular correctamente tu lógica (Principio de Encapsulación).
