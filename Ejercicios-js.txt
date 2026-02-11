@@ -1,0 +1,300 @@
+Entiendo, aquí tienes 30 ejercicios más concretos con instrucciones específicas:
+
+PROMESAS
+
+1. Retry con límite de intentos
+   · Crea una función retryOperation(fn, maxAttempts) que intente ejecutar una función que devuelve una promesa
+   · Si falla, reintenta hasta maxAttempts veces
+   · Espera 500ms entre cada intento
+   · Si todos los intentos fallan, rechaza con el último error
+2. Ejecutar promesas en serie
+   · Implementa runPromisesInSeries(promiseArray) que ejecute un array de funciones que devuelven promesas
+   · Cada promesa debe esperar a que la anterior se complete
+   · Devuelve un array con todos los resultados en orden
+3. Primera promesa que se resuelve
+   · Crea firstResolvingPromise(promises) que reciba un array de promesas
+   · Devuelve la primera promesa que se resuelva (no importa si otras se rechazan)
+   · Si todas se rechazan, devuelve un error personalizado
+4. Timeout para promesa
+   · Implementa promiseTimeout(promise, ms)
+   · Si la promesa no se resuelve en ms milisegundos, rechaza con "Timeout"
+   · Si se resuelve antes, devuelve su resultado
+5. Control de concurrencia
+   · Crea processWithConcurrency(tasks, limit) que procese un array de funciones asíncronas
+   · Solo limit tareas pueden ejecutarse simultáneamente
+   · Devuelve los resultados en el mismo orden del array original
+
+CLASES Y HERENCIA
+
+1. Sistema de formas geométricas
+   ```javascript
+   // Instrucciones:
+   // 1. Crea clase abstracta Shape con método abstracto area()
+   // 2. Clases Circle y Rectangle que hereden de Shape
+   // 3. Circle: constructor(radius)
+   // 4. Rectangle: constructor(width, height)
+   // 5. Método toString() que devuelva: "Circle(r=5)" o "Rectangle(4x8)"
+   // 6. Método estático compare(shape1, shape2) que compare áreas
+   ```
+2. Sistema de empleados
+   ```javascript
+   // 1. Clase Employee con propiedades: id, name, baseSalary
+   // 2. Clase Developer que extienda Employee con propiedad: programmingLanguages
+   // 3. Clase Manager que extienda Employee con propiedad: team (array de Employees)
+   // 4. Método calculateSalary() diferente para cada clase:
+   //    - Employee: baseSalary
+   //    - Developer: baseSalary + (1000 por cada lenguaje)
+   //    - Manager: baseSalary + (500 por cada empleado en equipo)
+   // 5. Método addEmployee(employee) solo en Manager
+   ```
+3. Carrito de compras con productos
+   ```javascript
+   // 1. Clase Product con: id, name, price, category
+   // 2. Clase ShoppingCart con: items (array)
+   // 3. Métodos en ShoppingCart:
+   //    - addProduct(product, quantity)
+   //    - removeProduct(productId)
+   //    - getTotal()
+   //    - getProductsByCategory(category)
+   //    - applyDiscount(percent) // reduce precio de todos los productos
+   ```
+4. Sistema de reservas
+   ```javascript
+   // 1. Clase Resource con: id, name, capacity
+   // 2. Clase Reservation con: id, resourceId, startTime, endTime, customerName
+   // 3. Clase ReservationSystem que gestione múltiples recursos
+   // 4. Métodos:
+   //    - makeReservation(resourceId, start, end, customer)
+   //    - checkAvailability(resourceId, start, end)
+   //    - getReservationsByCustomer(customerName)
+   //    - cancelReservation(reservationId)
+   ```
+5. Juego de personajes RPG
+   ```javascript
+   // 1. Clase Character con: name, health, strength, defense
+   // 2. Métodos: attack(target), takeDamage(amount), isAlive()
+   // 3. Clase Warrior que extienda Character con: rage (empieza en 0)
+   //    - attack: incrementa rage en 10
+   //    - specialAttack: si rage >= 50, hace daño extra y reset rage
+   // 4. Clase Mage que extienda Character con: mana (empieza en 100)
+   //    - attack: gasta 20 mana
+   //    - rechargeMana: recupera 30 mana
+   ```
+
+CALLBACKS Y FUNCIONES
+
+1. Pipe de funciones
+   ```javascript
+   // Implementa pipe(...functions) que ejecute funciones en secuencia
+   // Ejemplo: 
+   // const add5 = x => x + 5;
+   // const multiply3 = x => x * 3;
+   // const result = pipe(add5, multiply3)(10); // 45
+   // Las funciones pueden ser síncronas o asíncronas
+   ```
+2. Debounce mejorado
+   ```javascript
+   // Crea debounce(func, wait, immediate)
+   // - immediate = true: ejecuta al principio del periodo de espera
+   // - immediate = false: ejecuta al final del periodo de espera
+   // - La función debe devolver una promesa que se resuelva con el resultado
+   // - Si se llama nuevamente durante el wait, cancela la anterior
+   ```
+3. Memoize con tiempo de expiración
+   ```javascript
+   // Implementa memoize(func, ttl)
+   // - Almacena resultados en caché
+   // - ttl = tiempo en milisegundos que el resultado es válido
+   // - Después de ttl, el resultado debe recalcularse
+   // - La clave de caché debe usar JSON.stringify de los argumentos
+   ```
+4. Validación con funciones validadoras
+   ```javascript
+   // Crea un sistema de validación:
+   // 1. Funciones validadoras: isEmail, minLength(n), maxLength(n), etc.
+   // 2. Función validate(value, validators) que ejecute todas las validaciones
+   // 3. Debe devolver { isValid: boolean, errors: [] }
+   // Ejemplo: validate("test@email.com", [isEmail, minLength(5)])
+   ```
+5. Transformador de objetos recursivo
+   ```javascript
+   // Crea transformObject(obj, transformer)
+   // - transformer es una función que recibe (key, value)
+   // - Aplica transformer a todos los valores del objeto
+   // - Funciona recursivamente con objetos anidados y arrays
+   // Ejemplo: transformar todos los strings a mayúsculas
+   ```
+
+MANEJO DE DATOS
+
+1. Diferencia entre dos objetos
+   ```javascript
+   // Implementa getObjectDiff(oldObj, newObj)
+   // Devuelve objeto con cambios:
+   // {
+   //   added: { clave: valor }, // solo en newObj
+   //   removed: { clave: valor }, // solo en oldObj  
+   //   changed: { clave: { old: valor, new: valor } }
+   // }
+   // Funciona con objetos anidados
+   ```
+2. Agrupar array de objetos
+   ```javascript
+   // Implementa groupBy(array, keyGetter)
+   // - keyGetter puede ser string (nombre propiedad) o función
+   // - Devuelve objeto donde keys son los valores agrupados
+   // Ejemplo:
+   // const data = [{id: 1, cat: 'A'}, {id: 2, cat: 'B'}, {id: 3, cat: 'A'}]
+   // groupBy(data, 'cat') => { A: [obj1, obj3], B: [obj2] }
+   // groupBy(data, item => item.cat.charAt(0)) // por primera letra
+   ```
+3. Aplanar objeto anidado
+   ```javascript
+   // Implementa flattenObject(obj, prefix = '')
+   // Convierte: { a: { b: { c: 1 }, d: 2 }, e: 3 }
+   // En: { 'a.b.c': 1, 'a.d': 2, 'e': 3 }
+   // Opcional: parámetro separator para cambiar '.' por otro carácter
+   ```
+4. Buscar camino en laberinto
+   ```javascript
+   // Dada una matriz (array 2D) representando laberinto:
+   // 0 = camino, 1 = pared, S = inicio, E = fin
+   // Implementa findPath(maze) que encuentre camino de S a E
+   // Devuelve array con coordenadas del camino o null si no hay
+   // Usa backtracking recursivo
+   ```
+5. Generador de secuencias
+   ```javascript
+   // Crea clase Sequence con métodos:
+   // - next(): devuelve siguiente valor
+   // - current(): devuelve valor actual
+   // - reset(): reinicia secuencia
+   // Implementar subclases:
+   // 1. FibonacciSequence: genera números Fibonacci
+   // 2. PrimeSequence: genera números primos
+   // 3. RangeSequence(start, end, step): genera rango
+   ```
+
+ALGORITMOS
+
+1. Implementar Map desde cero
+   ```javascript
+   // Crea clase MyMap (sin usar Map nativo)
+   // Métodos: set(key, value), get(key), has(key), delete(key), clear()
+   // Debe manejar cualquier tipo de clave (usar stringify para objetos)
+   // Implementa iterador [Symbol.iterator]() para usar for...of
+   ```
+2. Merge de intervalos
+   ```javascript
+   // Dado array de intervalos [[start, end], ...]
+   // Implementa mergeIntervals(intervals)
+   // Fusiona intervalos que se solapan
+   // Ejemplo: [[1,3], [2,6], [8,10]] => [[1,6], [8,10]]
+   // Ordenar primero por start time
+   ```
+3. Calculadora de expresiones
+   ```javascript
+   // Implementa evaluateExpression(expression)
+   // expression es string con operaciones básicas: +, -, *, /, ()
+   // Ejemplo: "3 + 4 * 2 / (1 - 5)"
+   // Usa dos stacks: valores y operadores
+   // Respeta precedencia de operadores
+   ```
+4. Encontrar pares que sumen objetivo
+   ```javascript
+   // Implementa findPairs(numbers, targetSum)
+   // Devuelve todos los pares únicos (sin repetir) que suman targetSum
+   // Ejemplo: [1, 2, 3, 4, 5], target=5 => [[1,4], [2,3]]
+   // Ordenar cada par de menor a mayor
+   // Ordenar lista de pares por primer elemento
+   ```
+5. Rotación de matriz 90 grados
+   ```javascript
+   // Implementa rotateMatrix(matrix, clockwise = true)
+   // Rota matriz NxN 90 grados en sentido horario o antihorario
+   // Sin crear nueva matriz (modificar en lugar)
+   // Ejemplo: [[1,2,3],[4,5,6],[7,8,9]] => [[7,4,1],[8,5,2],[9,6,3]]
+   ```
+
+SISTEMAS
+
+1. Event Emitter
+   ```javascript
+   // Implementa clase EventEmitter con métodos:
+   // - on(event, callback): suscribirse
+   // - off(event, callback): desuscribirse  
+   // - emit(event, ...args): emitir evento
+   // - once(event, callback): suscribirse por una vez
+   // Soporta múltiples listeners por evento
+   ```
+2. Sistema de caché con expiración
+   ```javascript
+   // Implementa clase Cache con:
+   // - set(key, value, ttl): ttl en milisegundos
+   // - get(key): devuelve null si expiró
+   // - delete(key)
+   // - clear()
+   // - size(): número de items activos
+   // Limpiar automáticamente entradas expiradas
+   ```
+3. Sistema de tareas periódicas
+   ```javascript
+   // Clase TaskScheduler con:
+   // - schedule(taskFn, interval): ejecuta cada intervalo ms
+   // - scheduleOnce(taskFn, delay): ejecuta después de delay ms
+   // - stop(taskId): detiene tarea
+   // - stopAll(): detiene todas
+   // - getActiveTasks(): devuelve lista de tareas activas
+   ```
+4. Validador de formulario
+   ```javascript
+   // Clase FormValidator con:
+   // - addField(name, rules): rules = [{validator, message}]
+   // - validateField(name, value): valida un campo
+   // - validateAll(): valida todos los campos
+   // - getErrors(): { field: [errors] }
+   // - isValid(): boolean
+   // Soporta validadores async
+   ```
+5. API Client con cache y retry
+   ```javascript
+   // Clase ApiClient con métodos:
+   // - get(url, options): options = { cache: boolean, retries: number }
+   // - post(url, data, options)
+   // Características:
+   // 1. Cache en memoria por URL (expira en 5 min)
+   // 2. Reintentos automáticos en fallos de red
+   // 3. Timeout de 10 segundos por defecto
+   // 4. Headers configurables
+   ```
+
+Ejemplo completo del ejercicio 2:
+
+```javascript
+// Ejercicio 2: Ejecutar promesas en serie
+async function runPromisesInSeries(promiseFunctions) {
+    const results = [];
+    
+    for (const promiseFn of promiseFunctions) {
+        try {
+            const result = await promiseFn();
+            results.push(result);
+        } catch (error) {
+            results.push({ error: error.message });
+        }
+    }
+    
+    return results;
+}
+
+// Uso:
+const tasks = [
+    () => new Promise(resolve => setTimeout(() => resolve(1), 1000)),
+    () => new Promise(resolve => setTimeout(() => resolve(2), 500)),
+    () => new Promise((_, reject) => setTimeout(() => reject(new Error('Falló')), 300))
+];
+
+// runPromisesInSeries(tasks).then(console.log);
+// Resultado: [1, 2, {error: "Falló"}]
+```
+
