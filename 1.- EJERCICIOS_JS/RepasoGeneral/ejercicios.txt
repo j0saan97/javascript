@@ -1,7 +1,6 @@
 Variables y Tipos de Datos
-Ejercicio Básico: Declara una variable llamada nombre con tu nombre, una variable edad con tu edad, y una variable esProgramador que sea un booleano. Luego, crea un string de plantilla (template literal) que incluya las tres variables.
 
-Ejercicio Intermedio: Escribe una función que reciba un valor y retorne el tipo de dato de ese valor (por ejemplo, number, string, boolean). Prueba la función con al menos 5 tipos de datos diferentes, incluyendo null y undefined.
+
 
 Ejercicio Avanzado: Crea un objeto llamado usuario que contenga propiedades de diferentes tipos de datos (por ejemplo, nombre (string), edad (number), habilidades (array), activo (boolean)). Luego, usando la conversión explícita, convierte el valor de la propiedad edad a un string y el valor de activo a un number y muestra ambos resultados en la consola.
 
